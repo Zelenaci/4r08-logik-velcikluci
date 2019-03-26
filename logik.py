@@ -8,6 +8,7 @@ Created on Tue Mar  5 09:56:18 2019
 
 import tkinter as tk
 from tkinter import Canvas, LabelFrame, Label, Button
+import random
 ################     OKNA    #################
 hlavni=tk.Tk()
 hlavni.title("Logik")
@@ -32,10 +33,19 @@ barvy="#c90000 #99dd00 #0000ff #ffff00 #008888 #880088 #dd9900 #ffffff".split()
 ################   SKRYTE BARVY   #################
 skryteBarvy=[]
 for sloupec in range(5):
-    skryteBarvy.append( Canvas(SkryteBarvy, background='grey', width=sirka, height=vyska) )
+    skryteBarvy.append( Canvas(SkryteBarvy, background="grey", width=sirka, height=vyska) )
     skryteBarvy[-1].grid(column=sloupec,row=0)
 
-skryteBarvy[0].config(background='#c90000')
+hadanka = []
+def generujHadanku():
+    for _ in range(5):
+        while 1:
+            nahodnaBarva=barvy[random.randint(0,len(barvy)-1)]
+            if not nahodnaBarva in hadanka:
+                break
+        hadanka.append(nahodnaBarva)
+    print(hadanka)
+
 
 
 
@@ -60,14 +70,7 @@ for radek in range(10):
 
 
 ############   BARVY VYBER   ######################
-x=44
-def odeslat():
-    global x
-    x=x-10
 
-
-OdeslatButton=Button(VyberBarvy,command=odeslat, text="Potvrdit")
-OdeslatButton.grid(row=radek+1)
     
 
     
@@ -77,14 +80,34 @@ for radek in range(1):
             barvaClick(s,b)
         b=tk.Button(VyberBarvy, width=sirka-4, height=vyska-1, bitmap="gray12", activebackground=barva, activeforeground=barva, bg=barva, fg=barva, command=fce)
         b.grid(row=radek, column=sloupec)    
-
-
+x=-1
+y=4
 def barvaClick(sloupec, barva):
-    global x
-    if x<=49:
+   global x
+   global y
+   if x<y:
         x=x+1
         barvyhadat[x].config(background=barva)
+        print(barva)
+        print(hadanka)
+        if barva == color:
+            print("dada")
+        print(x)
         
+    
+        
+
+def odeslat():
+    global x
+    global y
+    y=y+5
+
+OdeslatButton=Button(VyberBarvy,command=generujHadanku, text="start")
+OdeslatButton.grid(row=radek+2)
+       
+OdeslatButton=Button(VyberBarvy,command=odeslat, text="Potvrdit")
+OdeslatButton.grid(row=radek+1)
+       
 
     
    
