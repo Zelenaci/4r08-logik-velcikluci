@@ -36,7 +36,7 @@ for sloupec in range(5):
     skryteBarvy.append( Canvas(SkryteBarvy, background="grey", width=sirka, height=vyska) )
     skryteBarvy[-1].grid(column=sloupec,row=0)
 
-hadanka = []
+hadanka=[]
 def generujHadanku():
     for _ in range(5):
         while 1:
@@ -44,7 +44,7 @@ def generujHadanku():
             if not nahodnaBarva in hadanka:
                 break
         hadanka.append(nahodnaBarva)
-    print(hadanka)
+        
 
 
 
@@ -62,10 +62,12 @@ Label(Barvy,text="LOGIK").grid(column=0, columnspan=6, row=0)
 
 
 
-Label(BarvaPozice, text="Barva / Pozice").grid(column=0) 
+spravne=Label(BarvaPozice, text="Barva / Pozice")
+spravne.grid(column=0) 
 stats=[]    
 for radek in range(10):
-    stats.append(Label(BarvaPozice, text="-/-", padx=3, pady=3))
+    kurka=Label(BarvaPozice, text="-/-", padx=3, pady=3)
+    stats.append(kurka)
     stats[-1].grid()
 
 
@@ -82,26 +84,38 @@ for radek in range(1):
         b.grid(row=radek, column=sloupec)    
 x=-1
 y=4
+pokus=[]
 def barvaClick(sloupec, barva):
    global x
    global y
    if x<y:
+        pokus.append(barva)
         x=x+1
+        print(pokus)
         barvyhadat[x].config(background=barva)
-        print(barva)
-        print(hadanka)
-        if barva == color:
-            print("dada")
-        print(x)
         
     
         
 
 def odeslat():
+    print(stats)
+    pozice =0
+    color = 0
+    print(hadanka)
+    global pokus
+    for i in range(len(pokus)):
+        if pokus[i]==hadanka[i]:
+            pozice=pozice+1
+        elif pokus[i] in hadanka:
+            color=color+1
+    for stats[5] in range(10):
+        kurka.config(text='{0}/{1}'.format(color,pozice))
+    pokus=[]
     global x
     global y
     y=y+5
 
+    
 OdeslatButton=Button(VyberBarvy,command=generujHadanku, text="start")
 OdeslatButton.grid(row=radek+2)
        
@@ -116,9 +130,7 @@ OdeslatButton.grid(row=radek+1)
 
     
         
-#skryteBarvy[0].config(background='green')
 
-#barvyhadat[0].config(background="green")
 
 
 
