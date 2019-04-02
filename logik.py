@@ -66,8 +66,7 @@ spravne=Label(BarvaPozice, text="Barva / Pozice")
 spravne.grid(column=0) 
 stats=[]    
 for radek in range(10):
-    kurka=Label(BarvaPozice, text="-/-", padx=3, pady=3)
-    stats.append(kurka)
+    stats.append(Label(BarvaPozice, text="-/-", padx=3, pady=3))
     stats[-1].grid()
 
 
@@ -96,33 +95,38 @@ def barvaClick(sloupec, barva):
         
     
         
-
+l=-1
 def odeslat():
-    print(stats)
+    global l
+    l=l+1
     pozice =0
     color = 0
-    print(hadanka)
-    global pokus
+    global pokus    
     for i in range(len(pokus)):
         if pokus[i]==hadanka[i]:
             pozice=pozice+1
         elif pokus[i] in hadanka:
             color=color+1
-    for stats[5] in range(10):
-        kurka.config(text='{0}/{1}'.format(color,pozice))
+        stats[l].configure(text='{0}/{1}'.format(color,pozice))
+    if pozice==5:
+        print("You are winner!")
     pokus=[]
     global x
     global y
     y=y+5
 
-    
+def odkryjHadanku():
+    for i,udelatko in enumerate(skryteBarvy):
+        udelatko.config(bg=hadanka[i])    
+        
 OdeslatButton=Button(VyberBarvy,command=generujHadanku, text="start")
 OdeslatButton.grid(row=radek+2)
        
-OdeslatButton=Button(VyberBarvy,command=odeslat, text="Potvrdit")
-OdeslatButton.grid(row=radek+1)
+OdeslatButton2=Button(VyberBarvy,command=odeslat, text="Potvrdit")
+OdeslatButton2.grid(row=radek+1)
        
-
+OdeslatButton3=Button(VyberBarvy,command=odkryjHadanku, text="odrkyj")
+OdeslatButton3.grid(row=radek+3)
     
    
 
