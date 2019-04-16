@@ -25,6 +25,9 @@ BarvaPozice.grid(row=1, column=1)
 VyberBarvy = LabelFrame(hlavni)
 VyberBarvy.grid(row=2)
 
+Tlacitka = LabelFrame(hlavni)
+Tlacitka.grid(row=2, column=1)
+
 
 ###########Šířka a výška tlačítek   ##########
 sirka=30
@@ -114,19 +117,18 @@ def odeslat():
     global x
     global y
     y=y+5
-
 def odkryjHadanku():
     for i,udelatko in enumerate(skryteBarvy):
         udelatko.config(bg=hadanka[i])    
         
-OdeslatButton=Button(VyberBarvy,command=generujHadanku, text="start")
-OdeslatButton.grid(row=radek+2)
+OdeslatButton=Button(Tlacitka,command=generujHadanku, text="Start", padx=25)
+OdeslatButton.grid(row=1)
        
-OdeslatButton2=Button(VyberBarvy,command=odeslat, text="Potvrdit")
-OdeslatButton2.grid(row=radek+1)
+OdeslatButton2=Button(Tlacitka,command=odeslat, text="Potvrdit",padx=17)
+OdeslatButton2.grid(row=2)
        
-OdeslatButton3=Button(VyberBarvy,command=odkryjHadanku, text="odrkyj")
-OdeslatButton3.grid(row=radek+3)
+OdeslatButton3=Button(Tlacitka,command=odkryjHadanku, text="Odrkyj", padx=20)
+OdeslatButton3.grid(row=3)
     
    
 
