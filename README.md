@@ -1,30 +1,19 @@
-# PRG --  Logik
+LOGIK S NELOGICKÝM ŘEŠENÍM FINÁLNÍ VERZE:
 
-[![Join the chat at gitter.im/spseol/Python](https://badges.gitter.im/spseol/PRG-No.svg)](https://gitter.im/spseol/Python?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+NÁVOD:
+   - zmáčknout start
+   - naklikat barvy - nelze měnit (HARDCORE VERZE PRO PRAVÉ KOLOUŠKY)
+   - zmáčknout potvrdit > vaše volba se odešle
+   - nyní pokračujete dál, vybrat barvy, potvrdit, dokud neuhádnete
+   - pokud vyhrajete, vyprintuje se vám hláška že jste vyhrál
+   - tlačítkem Odkryj odkryjete barvy  - aby jste se podíval jaké tam jsou
+                                       - pokud chcete podvádět
+                                       - prostě vás ta blbost už nebaví
 
-Implementujte deskovou hru Logik. Hracím kamenům budou odpovídat barvy.
-
-Máme k dispozici
- * 8 druhů hracích kamemů
- * 2 druhy vyhodnocovacích kamenů -- tato informace lze sdělit i textově takže
-   je nemusíte používat
-
-Na začátku hry je náhodně rozmístěno 5 různých hracích kamenů. Druh hracího
-kamenu se nesmí opakovat. Hráč hádá rozmístění kamenů.
-
-Program při každém pokusu hráči sdělí:
-
- 1. kolik kamenů je použito správně, co do druhu i pozice 
-   (černé vyhodnocovací kameny)
- 2. kolik kamenů je správného druhu, ale na nesprávné pozici (bílé 
-    vyhodnocovací kameny) Toto sdělení může být číslovkou nebo pomocí
-    vyhodnocovacího kamene
-
-Hráč má 10 pokusů na to, aby uhodl skrytou kombinaci. Po uhodnutí nebo po
-vyčerpání všech pokusů program ukáže zadanou kombinaci.
-
-![logik.png](logik.png)
-
-
-
-* <https://mamut.spseol.cz/nozka/python/priklad_logik/>
+VÁROVÁNÍ!:
+   - nezapomenout při zahájení hry zmáčknout start
+   - každé tlačítko mačkat jen jednou a nespamovat ho, hrozí nebezpečí!! 
+   - hra může u některých jedinců vyvolávat návaly agrese a vzteku
+   - doporučená maximální doba hraní jsou 2 minuty
+   
+   
